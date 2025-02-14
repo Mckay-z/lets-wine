@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&family=Poppins:wght@400;600&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(43, 43, 43, 0.014);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content{
+    width: 100%;
+    height: 30vh;
+    text-align: right;
+    color: red;
+    padding-right: 100px;
+}
+
+.content h1{
+    font-family: "Redressed", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 95px;
+    color: rgb(211, 9, 9);
+}
+.content h3{
+    font-size: 55px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 50px;
+}
+.content a{
+    font-size: 23px;
+    font-family: "Redressed", serif;
+    font-weight: 600;
+    font-style: normal;
+    color:  rgb(211, 9, 9);
+    text-decoration: none;
+    border: 2px solid rgb(211, 9, 9);
+    padding: 15px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.content a:hover{
+    background-color: rgb(211, 9, 9);
+    border: 2px solid rgb(0, 0, 0);
+    color: #000;
+}
+
+.background-clip{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+@media (min-aspect-ratio:16/9) {
+    .background-clip{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio:16/9) {
+    .background-clip{
+        width: auto;
+        height: 100%;
+    }
+}
