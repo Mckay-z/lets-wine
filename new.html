@@ -1,66 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lets Wine</title>
-    <link
-      rel="stylesheet"
-      href="
-    new.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Redressed&family=Space+Grotesk:wght@300..700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <nav class="nav-bar">
-        <div class="logo">
-          <img src="./public/Screenshot 2025-02-14 092434.png" alt="" />
-        </div>
-        <div class="nav-cont">
-          <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Let's Wine</title>
 
-        <div class="search-container">
-          <form>
-            <input type="text" placeholder="Search..." />
-            <i class="fa fa-search"></i>
-          </form>
-        </div>
-      </nav>
-      <div class="masking-container">
-        <h1 class="masked-text">Happy Valentines Day</h1>
-      </div>
-    </header>
-    <section class="bottles">
-      <div class="item1, itm">
-        <img src="./public/image copy 2.png" alt="wine-bottle" />
-        <button>Add to Cart</button>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
 
-      </div>
-      <div class="item2, itm">
-        <img src="./public/image copy.png" alt="wine-bottle" />
-        <button>Add to Cart</button>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Redressed&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
 
-      </div>
-      <div class="item3, itm">
-        <img src="./public/image copy 2.png" alt="wine-bottle" />
-        <button>Add to Cart</button>
-      </div>
-    </section>
-  </body>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Redressed&family=Poppins:wght@400;600&display=swap");
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #ffffffe8;
+      width: 100%;
+      height: 20vh;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .logo img {
+      width: 250px;
+      cursor: pointer;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-family: "Redressed", serif;
+      font-weight: 700;
+      color: #930909;
+    }
+
+    .nav-links a:hover {
+      color: #930909;
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      color: #930909;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    form {
+      position: relative;
+      transition: all 1s;
+      width: 50px;
+      height: 50px;
+      background: #930909;
+      border-radius: 25px;
+      border: 4px solid white;
+      padding: 5px;
+    }
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 42.5px;
+      line-height: 30px;
+      outline: 0;
+      border: solid 1px #930909;
+      display: none;
+      font-size: 1em;
+      border-radius: 20px;
+      padding: 0 20px;
+    }
+
+    .fa {
+      box-sizing: border-box;
+      padding: 10px;
+      width: 42.5px;
+      height: 42.5px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 50%;
+      color: #ffffff;
+      text-align: center;
+      font-size: 1.2em;
+      transition: all 1s;
+    }
+
+    form:hover {
+      width: 250px;
+      cursor: pointer;
+    }
+
+    form:hover input {
+      display: block;
+    }
+
+    form:hover .fa {
+      background: #930909;
+      color: white;
+    }
+
+    .masked-text {
+      font-size: 8rem;
+      font-weight: bold;
+      font-family: 'Redressed', cursive;
+      color: transparent;
+      background-image: url(./public/thomas-thompson-KRBNQEcousw-unsplash.jpg);
+      background-size: 250%;
+      text-align: center;
+      background-position: 0 50%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animate-background 5s infinite alternate linear;
+    }
+
+    @keyframes animate-background {
+      0% {
+        background-position: 0 50%;
+      }
+
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    .bottles {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 2rem;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(./public/thomas-thompson-KRBNQEcousw-unsplash.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .itm {
+      background-color: #ffffff4b;
+      width: 350px;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+
+    .itm button {
+      width: 130px;
+      height: 50px;
+      margin-top: 10px;
+      background-color: #ffffff;
+      font-family: "Redressed", serif;
+      font-weight: 600;
+      font-size: larger;
+      color: #930909;
+      border: #930909 solid 1px;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+
+    .itm button:hover {
+      background-color: #930909;
+      color: #ffffff;
+      border: #930909 solid 1px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        flex-direction: column;
+        height: auto;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .logo img {
+        width: 180px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .nav-container {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .nav-container.active {
+        display: flex;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+        margin-left: 20px;
+      }
+
+      .nav-links a {
+        font-size: 1.2rem;
+      }
+
+      .search-container {
+        justify-content: center;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .masked-text {
+        font-size: 3rem;
+        padding: 1rem;
+      }
+
+      .itm {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <div class="logo">
+  <a href="index.html">
+    <img src="./public/Screenshot 2025-02-14 092434.png" alt="Logo" />
+  </a>
+</div>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+    <div class="nav-container" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="search-container">
+      <form onsubmit="return false;">
+        <input type="text" placeholder="Search..." />
+        <i class="fa fa-search"></i>
+      </form>
+    </div>
+  </nav>
+
+  <div class="masking-container">
+    <h1 class="masked-text">Happy Valentine's Day</h1>
+  </div>
+
+  <section class="bottles">
+    <div class="itm">
+      <img src="./public/image copy 2.png" alt="wine-bottle" />
+      <button>Add to Cart</button>
+    </div>
+    <div class="itm">
+      <img src="./public/image copy.png" alt="wine-bottle" />
+      <button>Add to Cart</button>
+    </div>
+    <div class="itm">
+      <img src="./public/image copy 2.png" alt="wine-bottle" />
+      <button>Add to Cart</button>
+    </div>
+  </section>
+
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  </script>
+</body>
 </html>

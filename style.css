@@ -1,77 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Redressed&family=Poppins:wght@400;600&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Poppins';
+    font-family: 'Poppins', sans-serif;
 }
 
-.container{
+.container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: rgba(43, 43, 43, 0.014);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 2rem;
 }
 
-.content{
+.content {
     width: 100%;
-    height: 30vh;
+    max-width: 1200px;
     text-align: right;
     color: red;
-    padding-right: 100px;
+    padding-right: 5%;
 }
 
-.content h1{
+.content h1 {
     font-family: "Redressed", serif;
     font-weight: 600;
     font-style: normal;
-    font-size: 95px;
+    font-size: clamp(2.5rem, 8vw, 6rem);
     color: rgb(211, 9, 9);
 }
-.content h3{
-    font-size: 55px;
+
+.content h3 {
+    font-size: clamp(1.5rem, 5vw, 3.4rem);
     color: rgb(0, 0, 0);
-    margin-bottom: 50px;
+    margin-bottom: 2rem;
 }
-.content a{
-    font-size: 23px;
+
+.content a {
+    font-size: clamp(1rem, 2vw, 1.4rem);
     font-family: "Redressed", serif;
     font-weight: 600;
-    font-style: normal;
-    color:  rgb(211, 9, 9);
+    color: rgb(211, 9, 9);
     text-decoration: none;
     border: 2px solid rgb(211, 9, 9);
-    padding: 15px 25px;
+    padding: 0.8rem 1.5rem;
     border-radius: 50px;
     transition: 0.3s;
+    display: inline-block;
 }
 
-.content a:hover{
-    background-color: rgb(211, 9, 9);
-    border: 2px solid rgb(0, 0, 0);
-    color: #000;
+.content a:hover {
+    background-color: #d30909;
+    border: 2px solid #d30909;
+    color: #ffffff;
 }
 
-.background-clip{
+.background-clip {
     position: absolute;
     right: 0;
     bottom: 0;
     z-index: -1;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-@media (min-aspect-ratio:16/9) {
-    .background-clip{
-        width: 100%;
-        height: auto;
+@media (max-width: 768px) {
+    .content {
+        text-align: center;
+        padding-right: 0;
     }
-}
 
-@media (max-aspect-ratio:16/9) {
-    .background-clip{
-        width: auto;
+    .background-clip {
+        position: fixed;
+        width: 100%;
         height: 100%;
+        object-fit: cover;
     }
 }
